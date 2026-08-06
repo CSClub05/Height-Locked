@@ -1,6 +1,6 @@
 # Height-Locked Mining
 
-A client-side Fabric mod for Minecraft Java Edition 1.21.4.
+A client-side Fabric mod for Minecraft.
 
 ## Behavior
 
@@ -17,9 +17,8 @@ The `]` part of the shortcut is available under **Options → Controls → Key B
 
 ## Requirements
 
-- Minecraft Java Edition 1.21.4
-- Fabric Loader 0.16.10 or newer compatible release
-- Fabric API for 1.21.4
+- Fabric Loader
+- Fabric API
 - Java 21
 
 The mod is client-only; it does not need to be installed on a multiplayer server.
@@ -41,5 +40,5 @@ gradlew.bat build
 The built mod will be placed in:
 
 ```text
-build/libs/heightlock-1.0.0.jar
+build/libs/
 ```
