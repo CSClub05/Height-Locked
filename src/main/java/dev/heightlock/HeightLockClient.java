@@ -8,6 +8,7 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
@@ -17,7 +18,9 @@ import net.minecraft.util.math.MathHelper;
 public final class HeightLockClient implements ClientModInitializer {
     public static final String MOD_ID = "heightlock";
 
-    private static final String KEY_CATEGORY = "category.heightlock.controls";
+    private static final KeyBinding.Category KEY_CATEGORY = KeyBinding.Category.create(
+            Identifier.of(MOD_ID, "controls")
+    );
 
     private static KeyBinding toggleKey;
     private static boolean enabled;
@@ -37,7 +40,7 @@ public final class HeightLockClient implements ClientModInitializer {
 
     private static void onEndClientTick(MinecraftClient client) {
         boolean modifierDown = InputUtil.isKeyPressed(
-                client.getWindow().getHandle(),
+                client.getWindow(),
                 InputUtil.GLFW_KEY_X
         );
         boolean chordDown = modifierDown && toggleKey.isPressed();
@@ -97,8 +100,5 @@ public final class HeightLockClient implements ClientModInitializer {
 
     public static boolean isEnabled() {
         return enabled;
-    }
-
-    public HeightLockClient() {
     }
 }
