@@ -1,6 +1,6 @@
 # Height-Locked Mining
 
-A client-side Fabric mod for Minecraft Java Edition 1.21.11.
+A client-side Fabric mod for Minecraft Java Edition 1.21.4.
 
 ## Behavior
 
@@ -13,14 +13,14 @@ A client-side Fabric mod for Minecraft Java Edition 1.21.11.
 - The two permitted layers are recalculated from the player's current eye position for every mining attempt.
 - Toggling the mode cancels any currently progressing block break.
 
-The `]` part of the shortcut is available under **Options → Controls → Key Binds → Height-Locked Mining**. `X` remains the fixed modifier.
+The `]` part of the shortcut is available under **Options → Controls → Key Binds → Height-Locked Mining**. `X` is the fixed modifier in version 1.0.0.
 
 ## Requirements
 
-- Minecraft Java Edition 1.21.11
-- Fabric Loader 0.19.3 or newer compatible release
-- Fabric API 0.141.6+1.21.11 or another compatible 1.21.11 release
-- Java 21 or newer for Gradle; the mod targets Java 21 bytecode
+- Minecraft Java Edition 1.21.4
+- Fabric Loader 0.16.10 or newer compatible release
+- Fabric API for 1.21.4
+- Java 21
 
 The mod is marked client-only; it does not need to be installed on a multiplayer server.
 
@@ -29,30 +29,28 @@ The mod is marked client-only; it does not need to be installed on a multiplayer
 macOS/Linux:
 
 ```bash
-./gradlew clean build
+./gradlew build
 ```
 
 Windows:
 
-```powershell
-.\gradlew.bat clean build
+```bat
+gradlew.bat build
 ```
 
 The built mod will be placed in:
 
 ```text
-build/libs/heightlock-1.2.0.jar
+build/libs/heightlock-1.0.0.jar
 ```
 
 ## Install
 
-1. Install Fabric Loader for Minecraft 1.21.11.
-2. Install Fabric API for Minecraft 1.21.11.
-3. Copy `heightlock-1.2.0.jar` into the Minecraft `mods` folder.
-4. Start the Fabric 1.21.11 profile.
+1. Install Fabric Loader for Minecraft 1.21.4.
+2. Install a compatible Fabric API release.
+3. Copy `heightlock-1.0.0.jar` into the Minecraft `mods` folder.
+4. Start the Fabric 1.21.4 profile.
 
-## 1.21.11 port notes
+## Technical notes
 
-This release updates the project to Minecraft 1.21.11, Yarn `1.21.11+build.6`, Fabric Loader `0.19.3`, Fabric API `0.141.6+1.21.11`, Fabric Loom `1.14.10`, and the Gradle `9.2.1` distribution.
-
-The client input and mining APIs used by the mod remain compatible in 1.21.11. The mining interception points are still `attackBlock`, `updateBlockBreakingProgress`, and `breakBlock` in `ClientPlayerInteractionManager`. The keybinding continues to use `KeyBinding.Category`, and the X modifier check continues to use `InputUtil.isKeyPressed(Window, int)`.
+The mixin intercepts `attackBlock`, `updateBlockBreakingProgress`, and `breakBlock` in the client interaction manager. This covers initial clicks, held mining progress, and immediate/creative block breaking.

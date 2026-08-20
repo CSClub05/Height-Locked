@@ -1,5 +1,5 @@
 {
-  "key.category.heightlock.controls": "Height-Locked Mining",
+  "category.heightlock.controls": "Height-Locked Mining",
   "key.heightlock.toggle": "Toggle height lock (hold X)",
   "message.heightlock.enabled": "Height-locked mining enabled",
   "message.heightlock.disabled": "Height-locked mining disabled"
