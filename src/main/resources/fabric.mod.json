@@ -5,7 +5,7 @@
   "name": "Height-Locked Mining",
   "description": "Client-side mining lock that permits block breaking only at the player's eye and lower-body Y levels.",
   "authors": [
-    "OpenAI"
+    "CSClub05"
   ],
   "contact": {},
   "license": "MIT",
