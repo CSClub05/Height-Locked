@@ -8,4 +8,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'heightlock-fabric-1.21.11'
+rootProject.name = 'heightlock-fabric-1.21.5'
